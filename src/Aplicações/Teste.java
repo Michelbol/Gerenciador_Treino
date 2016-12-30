@@ -14,9 +14,6 @@ public class Teste {
 		System.out.println("Mês: "+c.get(Calendar.MONTH));
 		System.out.println("Dia do Mês: "+c.get(Calendar.DAY_OF_MONTH));
                 System.out.println("Dia da Semana: " + c.get(Calendar.DAY_OF_WEEK));
-                System.out.println("haha");
-		System.out.println("Teste");
-                //olaaaaaaaaa
     }
     
  }
