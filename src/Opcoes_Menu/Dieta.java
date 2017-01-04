@@ -2,6 +2,7 @@
 package Opcoes_Menu;
 
 import Aplicações.Conexao;
+import Classes.Usuario;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,11 +36,11 @@ public class Dieta {
    
     static List dieta = new ArrayList();
     
-    public Collection dieta (int idusuario){
+    public Collection dieta (Usuario u){
         q = "select s.Dia as Dia, d.Refeicao, d.Descricao from dieta d " +
             "inner join semana s on s.idSemana = d.idDieta " +
             "inner join usuario u on u.idUsuario = d.idUsuario " +
-            "where "+idusuario+" = d.idUsuario";
+            "where "+u.getIdusuario()+" = d.idUsuario";
         System.out.println(q);
         try{ 
             Statement st = con.createStatement();

@@ -1,6 +1,8 @@
 
 package Interfaces;
 
+import Classes.Usuario;
+
 public interface Menu {
-    void Menu(int idusuario);
+    void Menu(Usuario u);
 }

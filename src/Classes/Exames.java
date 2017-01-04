@@ -48,9 +48,9 @@ public class Exames {
     public Exames() {
     }
     
-    public Collection Consulta_Exame(int idusuario){
+    public Collection Consulta_Exame(Usuario u){
                     q = "select av.idAvaliacao as Codigo, av.Dia_avaliacao as Seu_Exame from avaliacao av\n" +
-                        "where idusuario ="+ idusuario +";";
+                        "where idusuario ="+ u.getIdusuario() +";";
                     try{
                     Statement st = con.createStatement();
                     ResultSet rs = st.executeQuery(q);           

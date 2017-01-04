@@ -3,6 +3,7 @@ package Opcoes_Menu;
 
 import Classes.Marcar_Avaliacoes;
 import Classes.Exames;
+import Classes.Usuario;
 import javax.swing.JOptionPane;
 import Menu.Menu_Opcoes_Atleta;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class Menu_Avaliacao {
     Menu_Opcoes_Atleta menu;
     Exames ex;
     
-    public void Menu(int idusuario){
+    public void Menu(Usuario u){
         while(!sair){
             op = Integer.parseInt(JOptionPane.showInputDialog(""
                 + "01 - Marcar Avaliação\n"
@@ -26,11 +27,11 @@ public class Menu_Avaliacao {
             switch(op){
                 case 01:
                     avaliacoes = new Marcar_Avaliacoes();
-                    avaliacoes.Marcar_Avalicao(idusuario);
+                    avaliacoes.Marcar_Avalicao(u);
                     break;
                 case 02:
                     ex = new Exames();
-                    ArrayList consulta_exame = new ArrayList(ex.Consulta_Exame(idusuario));
+                    ArrayList consulta_exame = new ArrayList(ex.Consulta_Exame(u));
                     JOptionPane.showMessageDialog(null, consulta_exame.toArray());
                     break;
                 case 03:

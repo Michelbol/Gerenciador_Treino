@@ -25,10 +25,10 @@ public class Gerenciamento_Menus {
                     u.setLogin("");
                 }
             u.setSenha(JOptionPane.showInputDialog("Digite sua Senha: "));
-            u.setIdusuario(u.verificaUsuario(u.getLogin(), u.getSenha()));
+            u = u.verificaUsuario(u.getLogin(), u.getSenha());
     //Menus
             if (u.getIdusuario() != 0){
-                menu_Atleta.Menu(u.getIdusuario());
+                menu_Atleta.Menu(u);
     //Saindo do Sistema
                 q = "update usuario set conexao = 'Offline' where usuario.login = " + "'" + u.getLogin() + "'";
                 try{

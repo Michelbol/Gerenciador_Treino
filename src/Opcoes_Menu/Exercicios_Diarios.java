@@ -3,6 +3,7 @@ package Opcoes_Menu;
 
 import Aplicações.Conexao;
 import Classes.Exercicio_Dia;
+import Classes.Usuario;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,14 +24,14 @@ public class Exercicios_Diarios {
  //Objeto
     Exercicio_Dia ed;
 //Verificando Exercicios Atleta
-    public Collection exerc_diario_atleta(int idusuario){
+    public Collection exerc_diario_atleta(Usuario u){
         exercicios_dia.clear();
         q = "select s.Dia, e.nome_exercicio as Exercicio, m.Nome_Musculo as Musculo, e.Descricao from exercicios_diarios ed " +
         "inner join usuario u on ed.idUsuario = u.idUsuario " +
         "inner join semana s on ed.idSemana = s.idSemana " +
         "inner join exercicios e on ed.idExercicios = e.idExercicios " +
         "inner join musculo m on e.idmusculo = m.idmusculo " +
-        "where u.idUsuario = "+ idusuario;
+        "where u.idUsuario = "+ u.getIdusuario();
         try{ 
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(q);            

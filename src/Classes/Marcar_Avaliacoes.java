@@ -18,10 +18,10 @@ public class Marcar_Avaliacoes {
 //objetos
     Menu_Avaliacao_Horario hora = new Menu_Avaliacao_Horario();
     
-    public boolean Marcar_Avalicao(int idUsuario){
+    public boolean Marcar_Avalicao(Usuario u){
        data_hora = hora.hora_avaliacao();
         q = "insert into avaliacao(idUsuario, Dia_avaliacao) "
-            + "values ("+idUsuario+", "+"'"+ data_hora +"')";
+            + "values ("+u.getIdusuario()+", "+"'"+ data_hora +"')";
         try{
             Statement st = con.createStatement();
             st.executeUpdate(q);

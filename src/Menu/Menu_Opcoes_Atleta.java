@@ -4,6 +4,7 @@ package Menu;
 import Opcoes_Menu.Exercicios_Diarios;
 import Opcoes_Menu.Menu_Avaliacao;
 import Aplicações.Conexao;
+import Classes.Usuario;
 import Interfaces.Menu;
 import Opcoes_Menu.Aulas_Diarias;
 import Opcoes_Menu.Dieta;
@@ -27,7 +28,7 @@ public class Menu_Opcoes_Atleta implements Menu {
     
 //Cadastros
     @Override
-    public void Menu(int idusuario){
+    public void Menu(Usuario u){
         while(!sair){
         op = Integer.parseInt(JOptionPane.showInputDialog(""
             + "01 - Exercicios De Hoje\n"
@@ -39,17 +40,17 @@ public class Menu_Opcoes_Atleta implements Menu {
             switch(op){
                 case 1:
                     ed = new Exercicios_Diarios();
-                    ArrayList exerc_dia = new ArrayList(ed.exerc_diario_atleta(idusuario));
+                    ArrayList exerc_dia = new ArrayList(ed.exerc_diario_atleta(u));
                     JOptionPane.showMessageDialog(null, exerc_dia.toArray());
                     break;
                 case 2:
                     dieta = new Dieta();
-                    ArrayList diet = new ArrayList(dieta.dieta(idusuario));
+                    ArrayList diet = new ArrayList(dieta.dieta(u));
                     JOptionPane.showMessageDialog(null, diet.toArray());
                     break;
                 case 3:
                     aval = new Menu_Avaliacao();
-                    aval.Menu(idusuario);
+                    aval.Menu(u);
                     break;
                 case 4: 
                     ad = new Aulas_Diarias();
