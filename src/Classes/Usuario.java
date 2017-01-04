@@ -32,10 +32,18 @@ public class Usuario {
     }
 //set
     public void setLogin(String login) {
+        if(login == null){
+            this.login = "";
+        }else{
         this.login = login;
+        }
     }
     public void setSenha(String senha) {
+        if(senha == null){
+            this.senha = "";
+        }else{
         this.senha = senha;
+        }
     }
     public void setConexao(int conexao) {
         this.conexao = conexao;
@@ -63,7 +71,7 @@ public class Usuario {
             status = e.getMessage();
             System.out.println(status);
         }
-            if(login.equals(Login) && senha.equals(Senha)){
+            if(login.equals(Login) && senha.equals(Senha) && idusuario != 0){
                 JOptionPane.showMessageDialog(null, "Login Efetuado com Sucesso");
                 q = "update usuario set conexao = 'Online' where usuario.login = " + "'" + login + "'";
                 try{
