@@ -16,6 +16,11 @@ public class Usuario {
    private String senha;
    private int idusuario;
    private int conexao;
+   private int permissao;
+
+
+
+
    
 //get
     public String getLogin() {
@@ -29,6 +34,9 @@ public class Usuario {
     }
     public int getIdusuario() {
         return idusuario;
+    }
+    public int getPermissao() {
+        return permissao;
     }
 //set
     public void setLogin(String login) {
@@ -51,6 +59,9 @@ public class Usuario {
     public void setIdusuario(int idusuario) {
         this.idusuario = idusuario;
     }
+    public void setPermissao(int permissao) {
+        this.permissao = permissao;
+    }
     
     public Usuario verificaUsuario(String Login, String Senha){
         Usuario u = new Usuario();
@@ -63,10 +74,12 @@ public class Usuario {
                 u.idusuario = rs.getInt("idUsuario");
                 u.login = rs.getString("Login");
                 u.senha = rs.getString("Senha");
+                u.permissao = rs.getInt("idPermissoes");
             }else{
                 u.idusuario = 0;
                 u.login = "";
-                u.senha = "";                
+                u.senha = "";
+                u.permissao = 0;
             }
         }catch(SQLException e){
             status = e.getMessage();
