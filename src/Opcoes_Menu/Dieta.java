@@ -31,7 +31,7 @@ public class Dieta {
 
     @Override
     public String toString() {
-        return "Dieta{" + "Dia_Semana=" + Dia_Semana + ", Refeicao=" + Refeicao + ", Descricao=" + Descricao + '}';
+        return "Dia_Semana=" + Dia_Semana + ", Refeicao=" + Refeicao + ", Descricao=" + Descricao;
     }
    
     static List dieta = new ArrayList();

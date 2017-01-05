@@ -29,6 +29,6 @@ public class Aula_Diaria {
 //TooString
     @Override
     public String toString() {
-        return "\nAula_Diaria{" + "Nome_Aula=" + Nome_Aula + ", Hora_Aula=" + Hora_Aula + ", Dia_Aula=" + Dia_Aula + '}';
+        return "Nome_Aula=" + Nome_Aula + ", Hora_Aula=" + Hora_Aula + ", Dia_Aula=" + Dia_Aula;
     }
 }

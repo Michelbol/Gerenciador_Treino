@@ -28,7 +28,6 @@ public class Aulas_Diarias {
         q = "select ad.Aula_Nome, ad.Horario_Aula, s.Dia from aulas_diarias ad " +
             "inner join semana s on ad.idsemana = s.idSemana "+
             "where ad.idSemana = " + c.get(Calendar.DAY_OF_WEEK);
-            System.out.println(c.get(Calendar.DAY_OF_WEEK));
         try{ 
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(q);            
@@ -43,6 +42,6 @@ public class Aulas_Diarias {
             status = e.getMessage();
             System.out.println(status);
         }
-        return Horario_Aulas;
+            return Horario_Aulas;
     }
 }

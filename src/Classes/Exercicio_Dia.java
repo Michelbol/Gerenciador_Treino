@@ -44,6 +44,6 @@ public class Exercicio_Dia {
 //toString
     @Override
     public String toString() {
-        return "Exercicio_Dia{" + "Dia_Semana=" + Dia_Semana + ", Nome_Exercicio=" + Nome_Exercicio + ", Descricao=" + Descricao + ", Musculo=" + Musculo + '}';
+        return "Dia_Semana=" + Dia_Semana + ", Nome_Exercicio=" + Nome_Exercicio + ", Descricao=" + Descricao + ", Musculo=" + Musculo;
     }
 }

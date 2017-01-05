@@ -38,7 +38,7 @@ public class Exames {
 //toString
     @Override
     public String toString() {
-        return "Exames{" + "idavaliacao=" + idavaliacao + ", dia_avaliacao=" + dia_avaliacao + '}';
+        return "idavaliacao=" + idavaliacao + ", dia_avaliacao=" + dia_avaliacao;
     }
 //Construtores
     public Exames(int idavaliacao, String dia_avaliacao) {
