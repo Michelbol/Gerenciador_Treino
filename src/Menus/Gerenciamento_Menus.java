@@ -1,9 +1,9 @@
 
-package Menu;
+package Menus;
 
 import Aplicações.Conexao;
 import Classes.Usuario;
-import static Menu.Menu_Opcoes_Atleta.status;
+import static Menus.Menu_Opcoes_Atleta.status;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;

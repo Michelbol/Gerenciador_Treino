@@ -40,12 +40,14 @@ public class Exames {
     public String toString() {
         return "Exames{" + "idavaliacao=" + idavaliacao + ", dia_avaliacao=" + dia_avaliacao + '}';
     }
-
+//Construtores
     public Exames(int idavaliacao, String dia_avaliacao) {
+        super();
         this.idavaliacao = idavaliacao;
         this.dia_avaliacao = dia_avaliacao;
-    }
+    } 
     public Exames() {
+        super();
     }
     
     public Collection Consulta_Exame(Usuario u){
@@ -62,6 +64,7 @@ public class Exames {
                     }
                     }catch(SQLException e){
                     status = e.getMessage();
+                    System.out.println(status);
                     }
             return meus_exames;
     }

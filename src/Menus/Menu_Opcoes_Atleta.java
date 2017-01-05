@@ -1,11 +1,10 @@
 
-package Menu;
+package Menus;
 
 import Opcoes_Menu.Exercicios_Diarios;
 import Opcoes_Menu.Menu_Avaliacao;
 import Aplicações.Conexao;
 import Classes.Usuario;
-import Interfaces.Menu;
 import Opcoes_Menu.Aulas_Diarias;
 import Opcoes_Menu.Dieta;
 import java.sql.Connection;
@@ -13,21 +12,13 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
-public class Menu_Opcoes_Atleta implements Menu {
-//Conexão
-    Connection con = Conexao.getConnection();    
-//atributos
-    int op;
-    boolean sair = false;
-    static String status="";
+public class Menu_Opcoes_Atleta extends Menu {   
 //objetos
     Exercicios_Diarios ed;
     Dieta dieta;
     Menu_Avaliacao aval;
-    Aulas_Diarias ad;
-    
+    Aulas_Diarias ad;    
 //Cadastros
-    @Override
     public void Menu(Usuario u){
         while(!sair){
         op = Integer.parseInt(JOptionPane.showInputDialog(""

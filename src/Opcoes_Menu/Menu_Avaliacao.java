@@ -5,7 +5,7 @@ import Classes.Marcar_Avaliacoes;
 import Classes.Exames;
 import Classes.Usuario;
 import javax.swing.JOptionPane;
-import Menu.Menu_Opcoes_Atleta;
+import Menus.Menu_Opcoes_Atleta;
 import java.util.ArrayList;
 
 
