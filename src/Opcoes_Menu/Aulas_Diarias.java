@@ -1,25 +1,14 @@
 
 package Opcoes_Menu;
 
-import Aplicações.Conexao;
 import Classes.Aula_Diaria;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
-import java.util.List;
 
-public class Aulas_Diarias {
-//Conexão
-    Connection con = Conexao.getConnection();
-//Atributos
-    String q;
-    static String status = "";
-//Listas
-    static List Horario_Aulas = new ArrayList();
+public class Aulas_Diarias extends Aula_Diaria {
 //Objetos
     Aula_Diaria ad;
     Calendar c = Calendar.getInstance();

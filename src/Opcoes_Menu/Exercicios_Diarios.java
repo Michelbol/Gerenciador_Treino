@@ -1,26 +1,15 @@
 
 package Opcoes_Menu;
 
-import Aplicações.Conexao;
 import Classes.Exercicio_Dia;
 import Classes.Usuario;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 
-public class Exercicios_Diarios {
-//Conexão
-    Connection con = Conexao.getConnection();
-//Atributos
-    String q;
-    static String status = "";
-//Listas
-    static List exercicios_dia = new ArrayList();
+public class Exercicios_Diarios extends Exercicio_Dia {
  //Objeto
     Exercicio_Dia ed;
 //Verificando Exercicios Atleta

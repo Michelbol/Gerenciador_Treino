@@ -1,11 +1,23 @@
 
 package Classes;
 
+import Aplicações.Conexao;
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Aula_Diaria {
+//Conexão
+    public Connection con = Conexao.getConnection();
+//Atributos
     private String Nome_Aula;
     private String Hora_Aula;
     private String Dia_Aula;
+    public static String q;
+    public static String status = "";
+//Listas
+    public static List Horario_Aulas = new ArrayList();
 //get
     public String getNome_Aula() {
         return Nome_Aula;

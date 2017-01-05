@@ -9,16 +9,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-public class Gerenciamento_Menus {
+public class Gerenciamento_Menus extends Menu {
     public static void main(String[] args) {
-    //Conexão
-        Connection con = Conexao.getConnection();
-    //Atributos
-        String q;
     //Objetos
         Usuario u = new Usuario();
         Menu_Opcoes_Atleta menu_Atleta = new Menu_Opcoes_Atleta();
-    //Tela Login
+    //Tela Login -- Implementar verificação em Permissões
         while(u.getIdusuario() == 0){
                 u.setLogin(JOptionPane.showInputDialog("Digite seu Login: "));
                 if (u.getLogin() == null){

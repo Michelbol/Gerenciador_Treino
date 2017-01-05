@@ -1,11 +1,23 @@
 
 package Classes;
 
+import Aplicações.Conexao;
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Exercicio_Dia {
-    private String Dia_Semana;
+//Conexão
+    public Connection con = Conexao.getConnection();
+//Atributos
+        private String Dia_Semana;
     private String Nome_Exercicio;
     private String Descricao;
     private String Musculo;
+    public String q;
+    public String status = "";
+//Listas
+    public static List exercicios_dia = new ArrayList();
 //Get
     public String getDia_Semana() {
         return Dia_Semana;

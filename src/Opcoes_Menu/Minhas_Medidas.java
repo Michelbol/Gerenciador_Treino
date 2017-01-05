@@ -2,13 +2,11 @@
 package Opcoes_Menu;
 
 import Aplicações.Conexao;
-import Classes.Exames;
 import Classes.Usuario;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Collection;
 
 
 public class Minhas_Medidas {
@@ -35,7 +33,7 @@ public class Minhas_Medidas {
     public String toString() {
         return "Minhas_Medidas{" + "peito=" + peito + ", Biceps_Esq=" + Biceps_Esq + ", Biceps_Dir="
                + Biceps_Dir + ", Ant_Braco_Esq=" + Ant_Braco_Esq + ", Ant_Braco_Dir=" + Ant_Braco_Dir +
-                ", Coxa_Esq=" + Coxa_Esq + ", Coxa_Dir=" + Coxa_Dir + ", Panturrilha_Esq=" + Panturrilha_Esq +
+                ", Coxa_Esq=" + Coxa_Esq + ", Coxa_Dir=" + Coxa_Dir + ",\n Panturrilha_Esq=" + Panturrilha_Esq +
                 ", Panturrilha_Dir=" + Panturrilha_Dir + ", Gordura=" + Gordura + ", Abdomen=" + Abdomen +
                 ", Altura=" + Altura + ", Peso=" + Peso + '}';
     }
