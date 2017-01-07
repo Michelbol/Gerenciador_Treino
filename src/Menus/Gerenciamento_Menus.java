@@ -12,6 +12,8 @@ public class Gerenciamento_Menus extends Menu {
     //Objetos
         Usuario u = new Usuario();
         Menu_Opcoes_Atleta menu_Atleta = new Menu_Opcoes_Atleta();
+        Menu_Opcoes_Administrador_Academia menu_adm = new Menu_Opcoes_Administrador_Academia();
+        Menu_Opcoes_Medico menu_medico = new Menu_Opcoes_Medico();
     //Tela Login -- Implementar verificação em Permissões
        
     while(u.getIdusuario() == 0){
@@ -24,18 +26,25 @@ public class Gerenciamento_Menus extends Menu {
     switch(u.getPermissao()){
         //Menus
         case 1:
+            
             break;
         case 2:
             if (u.getIdusuario() != 0 ){
                 menu_Atleta.Menu(u);
-
             }
             break;
         case 3:
+            
             break;
         case 4:
+            if (u.getIdusuario() != 0 ){
+                menu_adm.Menu(u);
+            }
             break;
         case 5:
+            if (u.getIdusuario() != 0 ){
+                menu_medico.Menu(u);
+            }
             break;
     }
         }
