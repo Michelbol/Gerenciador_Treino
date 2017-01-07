@@ -1,24 +1,24 @@
 
 package Menus;
 
-import Opcoes_Menu.Exercicios_Diarios;
-import Opcoes_Menu.Menu_Avaliacao;
+import Classes.Aula_Diaria;
+import Classes.Exercicio_Dia;
 import Classes.Usuario;
-import Opcoes_Menu.Aulas_Diarias;
-import Opcoes_Menu.Dieta;
-import Opcoes_Menu.Minhas_Medidas;
+import Classes.Dieta;
+import Classes.Minhas_Medidas;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
 public class Menu_Opcoes_Atleta extends Menu {   
 //objetos
-    Exercicios_Diarios ed;
+    Exercicio_Dia ed;
     Dieta dieta;
     Menu_Avaliacao aval;
-    Aulas_Diarias ad;  
+    Aula_Diaria ad;  
     Minhas_Medidas mm;
 //Cadastros
+    @Override
     public void Menu(Usuario u){
         while(!sair){
         op = Integer.parseInt(JOptionPane.showInputDialog(""
@@ -30,7 +30,7 @@ public class Menu_Opcoes_Atleta extends Menu {
             + "06 - Sair do Sistema\n"));
             switch(op){
                 case 1:
-                    ed = new Exercicios_Diarios();
+                    ed = new Exercicio_Dia();
                     ArrayList exerc_dia = new ArrayList(ed.exerc_diario_atleta(u));
                     JOptionPane.showMessageDialog(null, exerc_dia.toArray());
                     break;
@@ -44,7 +44,7 @@ public class Menu_Opcoes_Atleta extends Menu {
                     aval.Menu(u);
                     break;
                 case 4: 
-                    ad = new Aulas_Diarias();
+                    ad = new Aula_Diaria();
                     ArrayList aulaDiaria = new ArrayList(ad.Aulas_Dia());
                     if (aulaDiaria.isEmpty()){
                         JOptionPane.showMessageDialog(null, "Infelizmente não temos nenhuma aula hoje");

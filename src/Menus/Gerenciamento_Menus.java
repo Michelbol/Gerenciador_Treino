@@ -11,9 +11,9 @@ public class Gerenciamento_Menus extends Menu {
     public static void main(String[] args) {
     //Objetos
         Usuario u = new Usuario();
-        Menu_Opcoes_Atleta menu_Atleta = new Menu_Opcoes_Atleta();
-        Menu_Opcoes_Administrador_Academia menu_adm = new Menu_Opcoes_Administrador_Academia();
-        Menu_Opcoes_Medico menu_medico = new Menu_Opcoes_Medico();
+        Menu menu_Atleta = new Menu_Opcoes_Atleta();
+        Menu menu_adm = new Menu_Opcoes_Administrador_Academia();
+        Menu menu_medico = new Menu_Opcoes_Medico();
     //Tela Login -- Implementar verificação em Permissões
        
     while(u.getIdusuario() == 0){

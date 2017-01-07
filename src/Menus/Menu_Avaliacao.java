@@ -1,12 +1,10 @@
 
-package Opcoes_Menu;
+package Menus;
 
 import Classes.Marcar_Avaliacoes;
 import Classes.Exames;
 import Classes.Usuario;
-import Menus.Menu;
 import javax.swing.JOptionPane;
-import Menus.Menu_Opcoes_Atleta;
 import java.util.ArrayList;
 
 
@@ -16,6 +14,7 @@ public class Menu_Avaliacao extends Menu {
     Menu_Opcoes_Atleta menu;
     Exames ex;
     
+    @Override
     public void Menu(Usuario u){
         while(!sair){
             op = Integer.parseInt(JOptionPane.showInputDialog(""

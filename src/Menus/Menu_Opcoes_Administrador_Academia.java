@@ -2,11 +2,8 @@
 package Menus;
 
 import Classes.Usuario;
-import Opcoes_Menu.Aulas_Diarias;
-import Opcoes_Menu.Dieta;
-import Opcoes_Menu.Exercicios_Diarios;
-import Opcoes_Menu.Menu_Avaliacao;
-import Opcoes_Menu.Minhas_Medidas;
+import Classes.Dieta;
+import Classes.Minhas_Medidas;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 

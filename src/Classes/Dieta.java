@@ -1,8 +1,7 @@
 
-package Opcoes_Menu;
+package Classes;
 
 import Aplicações.Conexao;
-import Classes.Usuario;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

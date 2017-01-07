@@ -1,5 +1,5 @@
 
-package Opcoes_Menu;
+package Menus;
 
 import Menus.Menu;
 import javax.swing.JOptionPane;

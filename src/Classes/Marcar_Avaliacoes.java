@@ -1,7 +1,7 @@
 
 package Classes;
 
-import Opcoes_Menu.Menu_Avaliacao_Horario;
+import Menus.Menu_Avaliacao_Horario;
 import Aplicações.Conexao;
 import java.sql.Connection;
 import java.sql.SQLException;
