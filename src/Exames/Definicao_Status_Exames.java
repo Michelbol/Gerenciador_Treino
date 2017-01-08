@@ -1,5 +1,5 @@
 
-package Exames_Finalizado;
+package Exames;
 
 
 public class Definicao_Status_Exames {

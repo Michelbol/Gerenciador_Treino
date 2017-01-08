@@ -14,7 +14,8 @@ public class Menu {
     static String status="";
     static String q;
     
-    public void Menu(Usuario u){
+    public  void Menu(Usuario u){
+    
     
     }
 }

@@ -1,11 +1,12 @@
 
-package Menus;
+package Avaliacao;
 
+import Menus.Menu;
 import Menus.Menu;
 import javax.swing.JOptionPane;
 
 
-public class Menu_Avaliacao_Horario extends Menu {
+public class Avaliacao_Menu_Horario extends Menu {
     
     public String hora_avaliacao(){		
         String data = JOptionPane.showInputDialog("Digite a data de sua avaliação: Ano/Mes/Dia ");

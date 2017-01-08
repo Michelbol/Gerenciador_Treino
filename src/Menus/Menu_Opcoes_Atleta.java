@@ -1,6 +1,7 @@
 
 package Menus;
 
+import Avaliacao.Avaliacao_Menu;
 import Classes.Aula_Diaria;
 import Classes.Exercicio_Dia;
 import Classes.Usuario;
@@ -14,20 +15,22 @@ public class Menu_Opcoes_Atleta extends Menu {
 //objetos
     Exercicio_Dia ed;
     Dieta dieta;
-    Menu_Avaliacao aval;
+    Avaliacao_Menu aval;
     Aula_Diaria ad;  
     Minhas_Medidas mm;
+    Menu menu_adm = new Menu_Opcoes_Administrador_Academia();
+    Menu menu_medico = new Menu_Opcoes_Medico();
 //Cadastros
     @Override
     public void Menu(Usuario u){
-        while(!sair){
-        op = Integer.parseInt(JOptionPane.showInputDialog(""
-            + "01 - Exercicios De Hoje\n"
-            + "02 - Sua dieta\n"
-            + "03 - Avaliação\n"
-            + "04 - Aula Diarias\n"
-            + "05 - Minhas Medidas\n"
-            + "06 - Sair do Sistema\n"));
+        while(!sair){            
+                op = Integer.parseInt(JOptionPane.showInputDialog(""
+                + "01 - Exercicios De Hoje\n"
+                + "02 - Sua dieta\n"
+                + "03 - Avaliação\n"
+                + "04 - Aula Diarias\n"
+                + "05 - Minhas Medidas\n"
+                + "06 - Sair do Sistema\n"));            
             switch(op){
                 case 1:
                     ed = new Exercicio_Dia();
@@ -40,7 +43,7 @@ public class Menu_Opcoes_Atleta extends Menu {
                     JOptionPane.showMessageDialog(null, diet.toArray());
                     break;
                 case 3:
-                    aval = new Menu_Avaliacao();
+                    aval = new Avaliacao_Menu();
                     aval.Menu(u);
                     break;
                 case 4: 
@@ -61,6 +64,27 @@ public class Menu_Opcoes_Atleta extends Menu {
                     break;    
             }
         }
+        switch(u.getPermissao()){
+        //Menus
+        case 1:
+            
+            break;
+        case 2:
+            break;
+        case 3:
+            
+            break;
+        case 4:
+            if (u.getIdusuario() != 0 ){
+                menu_adm.Menu(u);
+            }
+            break;
+        case 5:
+            if (u.getIdusuario() != 0 ){
+                menu_medico.Menu(u);
+            }
+            break;
+    }
     }
     
 }

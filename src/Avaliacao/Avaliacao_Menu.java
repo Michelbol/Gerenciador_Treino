@@ -1,16 +1,17 @@
 
-package Menus;
+package Avaliacao;
 
-import Classes.Marcar_Avaliacoes;
-import Classes.Exames;
+import Exames.Exames;
 import Classes.Usuario;
+import Menus.Menu;
+import Menus.Menu_Opcoes_Atleta;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 
 
-public class Menu_Avaliacao extends Menu { 
+public class Avaliacao_Menu extends Menu { 
    //Obejtos 
-    Marcar_Avaliacoes avaliacoes;
+    Avaliacoes avaliacoes;
     Menu_Opcoes_Atleta menu;
     Exames ex;
     
@@ -23,7 +24,7 @@ public class Menu_Avaliacao extends Menu {
                 + "03 - Voltar Menu"));
             switch(op){
                 case 01:
-                    avaliacoes = new Marcar_Avaliacoes();
+                    avaliacoes = new Avaliacoes();
                     avaliacoes.Marcar_Avalicao(u);
                     break;
                 case 02:

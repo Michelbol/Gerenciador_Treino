@@ -1,7 +1,8 @@
 
-package Classes;
+package Exames;
 
 import Aplicações.Conexao;
+import Classes.Usuario;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
