@@ -28,6 +28,12 @@ public class Avaliacoes {
     }
     public Avaliacoes(){
     }
+//too String
+    @Override
+    public String toString() {
+        return "Avaliacoes{" + "data_hora=" + data_hora + ", nomeusuario=" + nomeusuario + ", idavaliacao=" + idavaliacao + '}';
+    }
+    
 //objetos
     ArrayList Avaliacoes_Medico = new ArrayList();
     Avaliacao_Menu_Horario hora;
@@ -49,13 +55,12 @@ public class Avaliacoes {
         return avaliacao;
     }
     public Collection Verifica_Avaliacoes_Medico(Usuario u){
-        q = "select a.idAvaliacao, u.Login, a.Dia_avaliacao from avaliacao a"
-            + "join usuario u on a.idUsuario = u.idUsuario"
+        q = "select a.idAvaliacao, u.Login, a.Dia_avaliacao from avaliacao a "
+            + "join usuario u on a.idUsuario = u.idUsuario "
             + "where a.idMedico = " + u.getIdusuario() + " and a.Finalizado = 'NAO'";
         try{
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(q);
-        st.executeUpdate(q);
         status = "Consulta realizada com sucesso";
             while(rs.next()){
                 idavaliacao = rs.getInt("idAvaliacao");

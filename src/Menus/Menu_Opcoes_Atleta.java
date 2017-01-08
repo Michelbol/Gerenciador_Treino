@@ -18,8 +18,6 @@ public class Menu_Opcoes_Atleta extends Menu {
     Avaliacao_Menu aval;
     Aula_Diaria ad;  
     Minhas_Medidas mm;
-    Menu menu_adm = new Menu_Opcoes_Administrador_Academia();
-    Menu menu_medico = new Menu_Opcoes_Medico();
 //Cadastros
     @Override
     public void Menu(Usuario u){
@@ -76,11 +74,13 @@ public class Menu_Opcoes_Atleta extends Menu {
             break;
         case 4:
             if (u.getIdusuario() != 0 ){
+                Menu menu_adm = new Menu_Opcoes_Administrador_Academia();
                 menu_adm.Menu(u);
             }
             break;
         case 5:
             if (u.getIdusuario() != 0 ){
+                Menu menu_medico = new Menu_Opcoes_Medico();
                 menu_medico.Menu(u);
             }
             break;

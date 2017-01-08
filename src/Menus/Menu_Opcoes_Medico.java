@@ -1,6 +1,7 @@
 
 package Menus;
 
+import Avaliacao.Avaliacoes;
 import Classes.Usuario;
 import Classes.Dieta;
 import Classes.Minhas_Medidas;
@@ -9,6 +10,10 @@ import javax.swing.JOptionPane;
 
 
 public class Menu_Opcoes_Medico extends Menu {
+    
+    //Objetos
+    
+    Avaliacoes av;
     @Override
     public void Menu(Usuario u){
         while(!sair){
@@ -20,7 +25,9 @@ public class Menu_Opcoes_Medico extends Menu {
             + "05 - Sair do Sistema\n"));
             switch(op){
                 case 1:
-                    
+                    av = new Avaliacoes();
+                    ArrayList aval = new ArrayList(av.Verifica_Avaliacoes_Medico(u));
+                    JOptionPane.showMessageDialog(null, aval.toArray());
                     break;
                 case 2:
                     
@@ -29,14 +36,17 @@ public class Menu_Opcoes_Medico extends Menu {
                     
                     break;
                 case 4: 
-                    
+                    if (u.getIdusuario() != 0 ){
+                        Menu menu_Atleta = new Menu_Opcoes_Atleta();
+                        menu_Atleta.Menu(u);
+                    }
                     break;
                 case 5:
                     sair = true;
                     break;    
             }
+        sair = true;
         }
-    
     }
     
 }

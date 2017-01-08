@@ -10,7 +10,7 @@ public class Menu {
     static Connection con = Conexao.getConnection(); 
     //atributos
     public int op;
-    public boolean sair = false;
+    public boolean sair;
     static String status="";
     static String q;
     

@@ -16,39 +16,43 @@ public class Gerenciamento_Menus extends Menu {
         Menu menu_medico = new Menu_Opcoes_Medico();
     //Tela Login -- Implementar verificação em Permissões
        
-    while(u.getIdusuario() == 0){
-                u.setLogin(JOptionPane.showInputDialog("Digite seu Login: "));
-                if (u.getLogin() == null){
-                    u.setLogin("");
-                }
+        while(u.getIdusuario() == 0){
+            u.setLogin(JOptionPane.showInputDialog("Digite seu Login: "));
+            if (u.getLogin() == null){
+                u.setLogin("");
+            }
             u.setSenha(JOptionPane.showInputDialog("Digite sua Senha: "));
             u = u.verificaUsuario(u.getLogin(), u.getSenha());
-    switch(u.getPermissao()){
-        //Menus
-        case 1:
+            if (u.getIdusuario() ==0 ){
             
-            break;
-        case 2:
-            if (u.getIdusuario() != 0 ){
-                menu_Atleta.Menu(u);
-            }
-            break;
-        case 3:
+            }else{    
+                switch(u.getPermissao()){
+                //Menus
+                    case 1:
             
-            break;
-        case 4:
-            if (u.getIdusuario() != 0 ){
-                menu_adm.Menu(u);
+                        break;
+                    case 2:
+                        if (u.getIdusuario() != 0 ){
+                        menu_Atleta.Menu(u);
+                        }
+                        break;
+                    case 3:
+            
+                        break;
+                    case 4:
+                        if (u.getIdusuario() != 0 ){
+                            menu_adm.Menu(u);
+                        }
+                        break;
+                    case 5:
+                        if (u.getIdusuario() != 0 ){
+                            menu_medico.Menu(u);
+                        }
+                        break;
+                }
             }
-            break;
-        case 5:
-            if (u.getIdusuario() != 0 ){
-                menu_medico.Menu(u);
-            }
-            break;
-    }
         }
-    //Saindo do Sistema
+        //Saindo do Sistema
         q = "update usuario set conexao = 'Offline' where usuario.login = " + "'" + u.getLogin() + "'";
             try{
                 Statement st = con.createStatement();

@@ -17,10 +17,6 @@ public class Usuario {
    private int idusuario;
    private int conexao;
    private int permissao;
-
-
-
-
    
 //get
     public String getLogin() {
@@ -98,7 +94,7 @@ public class Usuario {
                 return u;
             }else{
                 JOptionPane.showMessageDialog(null,"Usuario ou senha não cadastrado");
-                idusuario = 0;
+                u.idusuario = 0;
                 return u;
             }
     }
