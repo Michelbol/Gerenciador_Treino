@@ -1,7 +1,7 @@
 
 package Classes;
 
-import Aplicações.Conexao;
+import Aplicações.Conexao_Banco;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,10 +9,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class Dieta {
 //Conexão
-    Connection con = Conexao.getConnection();
+    Connection con = Conexao_Banco.getConnection();
 //Atributos
     String q;
     static String status = "";
@@ -35,7 +36,7 @@ public class Dieta {
    
     static List dieta = new ArrayList();
     
-    public Collection dieta (Usuario u){
+    public void dieta (Usuario u){
         q = "select s.Dia as Dia, d.Refeicao, d.Descricao from dieta d " +
             "inner join semana s on s.idSemana = d.idDieta " +
             "inner join usuario u on u.idUsuario = d.idUsuario " +
@@ -55,7 +56,7 @@ public class Dieta {
             status = e.getMessage();
             System.out.println(status);
         }        
-        return dieta;
+        JOptionPane.showMessageDialog(null, dieta.toArray());
     }
     
 }

@@ -1,7 +1,7 @@
 
 package Classes;
 
-import Aplicações.Conexao;
+import Aplicações.Conexao_Banco;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,11 +10,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 
 public class Aula_Diaria {
 //Conexão
-    public Connection con = Conexao.getConnection();
+    public Connection con = Conexao_Banco.getConnection();
 //Atributos
     private String Nome_Aula;
     private String Hora_Aula;
@@ -53,7 +54,7 @@ public class Aula_Diaria {
     Aula_Diaria ad;
     Calendar c = Calendar.getInstance();
     
-    public Collection Aulas_Dia(){
+    public void Aulas_Dia(){
         q = "select ad.Aula_Nome, ad.Horario_Aula, s.Dia from aulas_diarias ad " +
             "inner join semana s on ad.idsemana = s.idSemana "+
             "where ad.idSemana = " + c.get(Calendar.DAY_OF_WEEK);
@@ -71,6 +72,10 @@ public class Aula_Diaria {
             status = e.getMessage();
             System.out.println(status);
         }
-            return Horario_Aulas;
+        if (Horario_Aulas.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Infelizmente não temos nenhuma aula hoje");
+        }else{
+            JOptionPane.showMessageDialog(null,Horario_Aulas.toArray());
+        }
     }
 }

@@ -1,7 +1,7 @@
 
 package Classes;
 
-import Aplicações.Conexao;
+import Aplicações.Conexao_Banco;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +9,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 public class Usuario {
-   Connection con = Conexao.getConnection();
+   Connection con = Conexao_Banco.getConnection();
    String q;
    static String status="";
    private String login;
@@ -57,46 +57,6 @@ public class Usuario {
     }
     public void setPermissao(int permissao) {
         this.permissao = permissao;
-    }
-    
-    public Usuario verificaUsuario(String Login, String Senha){
-        Usuario u = new Usuario();
-        q = "select * from usuario where Login = '"+ Login +"'";
-        try{
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(q);
-            
-            if(rs.next()){
-                u.idusuario = rs.getInt("idUsuario");
-                u.login = rs.getString("Login");
-                u.senha = rs.getString("Senha");
-                u.permissao = rs.getInt("idPermissoes");
-            }else{
-                u.idusuario = 0;
-                u.login = "";
-                u.senha = "";
-                u.permissao = 0;
-            }
-        }catch(SQLException e){
-            status = e.getMessage();
-            System.out.println(status);
-        }
-            if(u.login.equals(Login) && u.senha.equals(Senha) && u.idusuario != 0){
-                JOptionPane.showMessageDialog(null, "Login Efetuado com Sucesso");
-                q = "update usuario set conexao = 'Online' where usuario.login = " + "'" + u.login + "'";
-                try{
-                Statement st = con.createStatement();
-                st.executeUpdate(q);
-                }catch(SQLException e){
-                status = "Não foi possivel alterar o registro erro: " +e.getMessage()+" sql executado "+ q;
-                    System.out.println(status);
-                }            
-                return u;
-            }else{
-                JOptionPane.showMessageDialog(null,"Usuario ou senha não cadastrado");
-                u.idusuario = 0;
-                return u;
-            }
     }
    
 }

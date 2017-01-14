@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Conexao {
+public class Conexao_Banco {
     public static String status = "";
     
     public static Connection getConnection(){

@@ -1,7 +1,7 @@
 
 package Exames;
 
-import Aplicações.Conexao;
+import Aplicações.Conexao_Banco;
 import Classes.Usuario;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -10,11 +10,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 
 public class Exames {
 //Conexao
-    Connection con = Conexao.getConnection();
+    Connection con = Conexao_Banco.getConnection();
 //atributos
     private int idavaliacao;
     private String dia_avaliacao;
@@ -51,7 +52,7 @@ public class Exames {
         super();
     }
     
-    public Collection Consulta_Exame(Usuario u){
+    public void Consulta_Exame(Usuario u){
                     q = "select av.idAvaliacao as Codigo, av.Dia_avaliacao as Seu_Exame from avaliacao av\n" +
                         "where idusuario ="+ u.getIdusuario() +";";
                     try{
@@ -67,7 +68,7 @@ public class Exames {
                     status = e.getMessage();
                     System.out.println(status);
                     }
-            return meus_exames;
+            JOptionPane.showMessageDialog(null, meus_exames.toArray());
     }
     
 }

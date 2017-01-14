@@ -1,19 +1,23 @@
 
 package Menus;
 
+import Aplicações.Conexao_Banco;
 import Avaliacao.Avaliacoes;
 import Classes.Usuario;
 import Classes.Dieta;
 import Classes.Minhas_Medidas;
+import java.sql.Connection;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
-public class Menu_Opcoes_Medico extends Menu {
-    
-    //Objetos
-    
-    Avaliacoes av;
+public class Menu_Opcoes_Medico implements Menu {
+    static Connection con = Conexao_Banco.getConnection(); 
+    //atributos
+    private int op;
+    private boolean sair;
+    private final String status="";
+    private String q;
     @Override
     public void Menu(Usuario u){
         while(!sair){
@@ -25,7 +29,7 @@ public class Menu_Opcoes_Medico extends Menu {
             + "05 - Sair do Sistema\n"));
             switch(op){
                 case 1:
-                    av = new Avaliacoes();
+                    Avaliacoes av = new Avaliacoes();
                     ArrayList aval = new ArrayList(av.Verifica_Avaliacoes_Medico(u));
                     JOptionPane.showMessageDialog(null, aval.toArray());
                     break;
@@ -45,7 +49,6 @@ public class Menu_Opcoes_Medico extends Menu {
                     sair = true;
                     break;    
             }
-        sair = true;
         }
     }
     

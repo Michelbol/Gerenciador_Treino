@@ -1,23 +1,25 @@
 
 package Menus;
 
+import Aplicações.Conexao_Banco;
 import Avaliacao.Avaliacao_Menu;
 import Classes.Aula_Diaria;
 import Classes.Exercicio_Dia;
 import Classes.Usuario;
 import Classes.Dieta;
 import Classes.Minhas_Medidas;
+import java.sql.Connection;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
-public class Menu_Opcoes_Atleta extends Menu {   
-//objetos
-    Exercicio_Dia ed;
-    Dieta dieta;
-    Avaliacao_Menu aval;
-    Aula_Diaria ad;  
-    Minhas_Medidas mm;
+public class Menu_Opcoes_Atleta implements Menu {   
+static Connection con = Conexao_Banco.getConnection(); 
+    //atributos
+    private int op;
+    private boolean sair;
+    private final String status="";
+    private String q;
 //Cadastros
     @Override
     public void Menu(Usuario u){
@@ -31,60 +33,30 @@ public class Menu_Opcoes_Atleta extends Menu {
                 + "06 - Sair do Sistema\n"));            
             switch(op){
                 case 1:
-                    ed = new Exercicio_Dia();
-                    ArrayList exerc_dia = new ArrayList(ed.exerc_diario_atleta(u));
-                    JOptionPane.showMessageDialog(null, exerc_dia.toArray());
+                    Exercicio_Dia ed = new Exercicio_Dia();
+                    ed.exerc_diario_atleta(u);
                     break;
                 case 2:
-                    dieta = new Dieta();
-                    ArrayList diet = new ArrayList(dieta.dieta(u));
-                    JOptionPane.showMessageDialog(null, diet.toArray());
+                    Dieta dieta = new Dieta();
+                    dieta.dieta(u);
                     break;
                 case 3:
-                    aval = new Avaliacao_Menu();
+                    Avaliacao_Menu aval = new Avaliacao_Menu();
                     aval.Menu(u);
                     break;
                 case 4: 
-                    ad = new Aula_Diaria();
-                    ArrayList aulaDiaria = new ArrayList(ad.Aulas_Dia());
-                    if (aulaDiaria.isEmpty()){
-                        JOptionPane.showMessageDialog(null, "Infelizmente não temos nenhuma aula hoje");
-                    }else{
-                    JOptionPane.showMessageDialog(null,aulaDiaria.toArray());
-                    }
+                    Aula_Diaria ad = new Aula_Diaria();
+                    ad.Aulas_Dia();                    
                     break;
                 case 5:
-                    mm = new Minhas_Medidas();
-                    JOptionPane.showMessageDialog(null, mm.Consuta_Medidas(u).toString());
+                    Minhas_Medidas mm = new Minhas_Medidas();
+                    mm.Consuta_Medidas(u);
                     break;
                 case 6:
                     sair = true;
                     break;    
             }
         }
-        switch(u.getPermissao()){
-        //Menus
-        case 1:
-            
-            break;
-        case 2:
-            break;
-        case 3:
-            
-            break;
-        case 4:
-            if (u.getIdusuario() != 0 ){
-                Menu menu_adm = new Menu_Opcoes_Administrador_Academia();
-                menu_adm.Menu(u);
-            }
-            break;
-        case 5:
-            if (u.getIdusuario() != 0 ){
-                Menu menu_medico = new Menu_Opcoes_Medico();
-                menu_medico.Menu(u);
-            }
-            break;
-    }
     }
     
 }

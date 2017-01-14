@@ -1,7 +1,7 @@
 
 package Avaliacao;
 
-import Aplicações.Conexao;
+import Aplicações.Conexao_Banco;
 import Classes.Usuario;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,7 +12,7 @@ import java.util.Collection;
 
 public class Avaliacoes {
 //Conexão
-    Connection con = Conexao.getConnection();
+    Connection con = Conexao_Banco.getConnection();
 //Atributos
     String q;
     static String status = "";
@@ -36,10 +36,10 @@ public class Avaliacoes {
     
 //objetos
     ArrayList Avaliacoes_Medico = new ArrayList();
-    Avaliacao_Menu_Horario hora;
+    Avaliacao_Menu_Horario hora = new Avaliacao_Menu_Horario();
     
     public boolean Marcar_Avalicao(Usuario u){
-       data_hora = hora.hora_avaliacao();
+       data_hora = hora.hora_avaliacao(); 
         q = "insert into avaliacao(idUsuario, Dia_avaliacao) "
             + "values ("+u.getIdusuario()+", "+"'"+ data_hora +"')";
         try{

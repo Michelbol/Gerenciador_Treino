@@ -1,7 +1,7 @@
 
 package Classes;
 
-import Aplicações.Conexao;
+import Aplicações.Conexao_Banco;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,10 +9,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class Exercicio_Dia {
 //Conexão
-    public Connection con = Conexao.getConnection();
+    public Connection con = Conexao_Banco.getConnection();
 //Atributos
         private String Dia_Semana;
     private String Nome_Exercicio;
@@ -65,7 +66,7 @@ public class Exercicio_Dia {
      //Objeto
     Exercicio_Dia ed;    
     //Verificando Exercicios Atleta
-    public Collection exerc_diario_atleta(Usuario u){
+    public void exerc_diario_atleta(Usuario u){
         exercicios_dia.clear();
         q = "select s.Dia, e.nome_exercicio as Exercicio, m.Nome_Musculo as Musculo, e.Descricao from exercicios_diarios ed " +
         "inner join usuario u on ed.idUsuario = u.idUsuario " +
@@ -88,6 +89,6 @@ public class Exercicio_Dia {
             status = e.getMessage();
             System.out.println(status);
         }
-        return exercicios_dia;
+        JOptionPane.showMessageDialog(null, exercicios_dia.toArray());
     }
 }

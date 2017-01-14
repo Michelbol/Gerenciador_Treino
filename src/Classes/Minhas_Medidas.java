@@ -1,16 +1,17 @@
 
 package Classes;
 
-import Aplicações.Conexao;
+import Aplicações.Conexao_Banco;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 
 public class Minhas_Medidas {
     //Conexao
-    Connection con = Conexao.getConnection();
+    Connection con = Conexao_Banco.getConnection();
     //Atributos
     private double peito;
     private double Biceps_Esq;
@@ -37,8 +38,7 @@ public class Minhas_Medidas {
                 ", Altura=" + Altura + ", Peso=" + Peso + '}';
     }
     
-    
-    public Minhas_Medidas Consuta_Medidas(Usuario u){
+    public void Consuta_Medidas(Usuario u){
                     Minhas_Medidas mm = new Minhas_Medidas();
                     q = "select * from minhas_medidas where idUsuario =" + u.getIdusuario();
                     try{
@@ -63,6 +63,6 @@ public class Minhas_Medidas {
                         status = e.getMessage();
                         System.out.println(status);
                     }
-            return mm;
+            JOptionPane.showMessageDialog(null, mm.toString());
     }
 }

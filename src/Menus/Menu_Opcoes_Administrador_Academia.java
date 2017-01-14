@@ -4,11 +4,19 @@ package Menus;
 import Classes.Usuario;
 import Classes.Dieta;
 import Classes.Minhas_Medidas;
+import java.sql.Connection;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
-public class Menu_Opcoes_Administrador_Academia extends Menu {
+public class Menu_Opcoes_Administrador_Academia implements Menu { 
+    //atributos
+    private int op;
+    private boolean sair;
+    private final String status="";
+    private String q;
+    
+    @Override
     public void Menu(Usuario u){
         while(!sair){
         op = Integer.parseInt(JOptionPane.showInputDialog(""
