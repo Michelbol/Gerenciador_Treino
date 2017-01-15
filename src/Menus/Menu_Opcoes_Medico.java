@@ -4,8 +4,6 @@ package Menus;
 import Aplicações.Conexao_Banco;
 import Avaliacao.Avaliacoes;
 import Classes.Usuario;
-import Classes.Dieta;
-import Classes.Minhas_Medidas;
 import java.sql.Connection;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -30,8 +28,7 @@ public class Menu_Opcoes_Medico implements Menu {
             switch(op){
                 case 1:
                     Avaliacoes av = new Avaliacoes();
-                    ArrayList aval = new ArrayList(av.Verifica_Avaliacoes_Medico(u));
-                    JOptionPane.showMessageDialog(null, aval.toArray());
+                    av.Verifica_Avaliacoes_Medico(u);                    
                     break;
                 case 2:
                     

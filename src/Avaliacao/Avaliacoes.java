@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.swing.JOptionPane;
 
 public class Avaliacoes {
 //Conexão
@@ -54,7 +55,7 @@ public class Avaliacoes {
         }
         return avaliacao;
     }
-    public Collection Verifica_Avaliacoes_Medico(Usuario u){
+    public void Verifica_Avaliacoes_Medico(Usuario u){
         q = "select a.idAvaliacao, u.Login, a.Dia_avaliacao from avaliacao a "
             + "join usuario u on a.idUsuario = u.idUsuario "
             + "where a.idMedico = " + u.getIdusuario() + " and a.Finalizado = 'NAO'";
@@ -73,6 +74,6 @@ public class Avaliacoes {
             status = "Não foi possivel alterar o registro erro: " +e.getMessage() +" sql executado " + q;
             System.out.println(status);
         }
-    return Avaliacoes_Medico;
+    JOptionPane.showMessageDialog(null, Avaliacoes_Medico.toArray());
     }
 }

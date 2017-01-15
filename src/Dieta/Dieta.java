@@ -1,13 +1,13 @@
 
-package Classes;
+package Dieta;
 
 import Aplicações.Conexao_Banco;
+import Classes.Usuario;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -36,7 +36,7 @@ public class Dieta {
    
     static List dieta = new ArrayList();
     
-    public void dieta (Usuario u){
+    public void Verifica_Dieta_Usuario (Usuario u){
         q = "select s.Dia as Dia, d.Refeicao, d.Descricao from dieta d " +
             "inner join semana s on s.idSemana = d.idDieta " +
             "inner join usuario u on u.idUsuario = d.idUsuario " +

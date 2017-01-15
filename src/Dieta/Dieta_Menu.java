@@ -1,34 +1,25 @@
 
-package Menus;
+package Dieta;
 
 import Classes.Usuario;
-import Dieta.Dieta;
-import Classes.Minhas_Medidas;
-import java.sql.Connection;
-import java.util.ArrayList;
+import Menus.Menu;
 import javax.swing.JOptionPane;
 
-
-public class Menu_Opcoes_Administrador_Academia implements Menu { 
-    //atributos
+public class Dieta_Menu implements Menu {
     private int op;
     private boolean sair;
-    private final String status="";
-    private String q;
-    
     @Override
-    public void Menu(Usuario u){
+    public void Menu(Usuario u) {
         while(!sair){
         op = Integer.parseInt(JOptionPane.showInputDialog(""
-            + "01 - Menu Atleta\n"
-            + "02 - \n"
-            + "03 - \n"
+            + "01 - Consultar Atletas com Dieta \n"
+            + "02 - Atribuir Dieta a Aluno\n"
+            + "03 - Conultar Dieta\n"
             + "04 - \n"
-            + "05 - \n"
-            + "06 - \n"));
+            + "05 - Sair do Sistema\n"));
             switch(op){
                 case 1:
-                    
+                                     
                     break;
                 case 2:
                     
@@ -40,13 +31,10 @@ public class Menu_Opcoes_Administrador_Academia implements Menu {
                     
                     break;
                 case 5:
-                    
-                    break;
-                case 6:
-               
+                    sair = true;
                     break;    
             }
         }
-    
     }
+    
 }
